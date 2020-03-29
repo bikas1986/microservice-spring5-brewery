@@ -21,7 +21,7 @@ import com.bikas.brewery.web.model.CustomerDto;
 @RestController
 @RequestMapping(CustomerController.BASE_URL)
 public class CustomerController {
-	public static final String BASE_URL = "api/v1/customers";
+	public static final String BASE_URL = "/api/v1/customers";
 	
 	private final CustomerService customerService;
 
