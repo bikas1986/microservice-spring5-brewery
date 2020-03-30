@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bikas.brewery.services.BeerService;
 import com.bikas.brewery.web.model.BeerDto;
 
+import javax.validation.Valid;
+
 @Deprecated
 @RestController
 @RequestMapping(BeerController.BASE_URL)
@@ -38,7 +40,7 @@ public class BeerController {
 	}
 	
 	@PostMapping // POST - create new beer
-    public ResponseEntity handlePost(@RequestBody BeerDto beerDto){
+    public ResponseEntity handlePost(@Valid @RequestBody BeerDto beerDto){
 
         BeerDto savedDto = beerService.saveNewBeer(beerDto);
 
@@ -50,7 +52,7 @@ public class BeerController {
     }
 	
 	@PutMapping({"/{beerId}"})
-    public ResponseEntity handleUpdate(@PathVariable("beerId") UUID beerId, @RequestBody BeerDto beerDto){
+    public ResponseEntity handleUpdate(@PathVariable("beerId") UUID beerId, @Valid @RequestBody BeerDto beerDto){
 
         beerService.updateBeer(beerId, beerDto);
 

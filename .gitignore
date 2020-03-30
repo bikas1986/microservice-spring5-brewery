@@ -3,5 +3,7 @@
 .project
 .factorypath
 .DS_Store
+brewery.iml
 target/
 bin/
+.idea/

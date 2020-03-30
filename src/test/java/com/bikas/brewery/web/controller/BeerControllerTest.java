@@ -85,9 +85,10 @@ class BeerControllerTest {
 	@Test
 	void testHandleUpdate() throws Exception {
 		BeerDto givenBeerDto = beerDto;
+		givenBeerDto.setId(null);
 		String beerDtoJson = objectMapper.writeValueAsString(givenBeerDto);
 		
-		mockMvc.perform(put(BeerController.BASE_URL+"/"+givenBeerDto.getId())
+		mockMvc.perform(put(BeerController.BASE_URL+"/"+UUID.randomUUID())
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(beerDtoJson))
 				.andExpect(status().isNoContent());
